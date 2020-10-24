@@ -1,0 +1,14 @@
+---
+platform: linux
+
+image_resource:
+    type: docker-image
+    source: {repository: busybox}
+
+# input is same as current dir
+inputs:
+    - name: task-inputs
+
+run:
+    path: ls
+    args: ["-alR"]
