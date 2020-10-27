@@ -37,3 +37,9 @@
 - `fly -t tutorial e -c task_show_uname.yml`
 - `task-scripts/task_show_uname.sh` is made available through the `inputs`
 
+
+## 5. Basic pipeline
+- `cd basic/basic-pipeline`
+- `fly -t tutorial set-pipeline -c pipeline.yml -p hello-world`
+- To unpause: `fly -t tutorial unpause-pipeline -p hello-world`
+- To trigger: click on `job-hello-world` & then the `+`
