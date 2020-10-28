@@ -54,3 +54,4 @@
     - Set pipeline: `fly -t tutorial sp -c pipeline.yml -p hello-world`
     - To unpause: `fly -t tutorial up -p hello-world`
 
+- The `hello-world` Task has access to the `resource-tutorial` git Resource
