@@ -43,3 +43,14 @@
 - `fly -t tutorial set-pipeline -c pipeline.yml -p hello-world`
 - To unpause: `fly -t tutorial unpause-pipeline -p hello-world`
 - To trigger: click on `job-hello-world` & then the `+`
+
+## 6. Pipeline Resources
+- All inputs that are stored externally from concourse
+- Pre-defined types: https://resource-types.concourse-ci.org/
+    - ex: `git`, `docker-image`, `slack-notifier`
+
+- To run:
+    - `cd ../pipeline-resources`
+    - Set pipeline: `fly -t tutorial sp -c pipeline.yml -p hello-world`
+    - To unpause: `fly -t tutorial up -p hello-world`
+
