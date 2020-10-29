@@ -11,7 +11,6 @@
 - `cd tutorials/basic/task-hello-world/`
 - `fly -t tutorial execute -c task_hello_world.yml`
 
-
 ## 2. Running Tasks
 - Can run from command line
     - ex: 
@@ -36,7 +35,6 @@
 - `cd ../task-scripts`
 - `fly -t tutorial e -c task_show_uname.yml`
 - `task-scripts/task_show_uname.sh` is made available through the `inputs`
-
 
 ## 5. Basic pipeline
 - `cd basic/basic-pipeline`
@@ -64,3 +62,15 @@
     - leave off `--job` to see one-offs
 
 - To see all builds: `fly -t tutorial builds`
+
+## 8. Triggering jobs
+- Clicking `+` in the web UI
+- Input resource triggering a job
+- `fly trigger-job -j pipeline/jobname` command
+- Sending a `POST` request to Concourse API
+
+Test: 
+- `fly -t tutorial trigger-job -j hello-world/job-hello-world`
+- To see logs in terminal: `fly -t tutorial watch -j hello-world/job-hello-world`
+- Or trigger & watch in one command:
+    - `fly -t tutorial trigger-job -j hello-world/job-hello-world -w`
