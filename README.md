@@ -58,7 +58,7 @@
     - Under the `resource-tutorial/` path
 
 ## 7. Job Outputs in Terminal
-- Can view output of a job with `watch -j`
+- Can view output of a job with `watch --job` (or just `-j`)
 - ex: `fly -t tutorial watch --job hello-world/job-hello-world`
     - Can add `--build NUM` for specific build
     - leave off `--job` to see one-offs
