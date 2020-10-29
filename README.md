@@ -55,3 +55,12 @@
     - To unpause: `fly -t tutorial up -p hello-world`
 
 - The `hello-world` Task has access to the `resource-tutorial` git Resource
+    - Under the `resource-tutorial/` path
+
+## 7. Job Outputs in Terminal
+- Can view output of a job with `watch -j`
+- ex: `fly -t tutorial watch --job hello-world/job-hello-world`
+    - Can add `--build NUM` for specific build
+    - leave off `--job` to see one-offs
+
+- To see all builds: `fly -t tutorial builds`
