@@ -79,7 +79,7 @@ Test:
     - `fly -t tutorial trigger-job -j hello-world/job-hello-world -w`
     
 ## 9. Triggering Jobs with Resources
-- When resource changes, cause a job trigger
+- When resource changes, cause a job to trigger
     - `trigger: true`
 - `cd tutorials/basic/triggers/`
 - `fly sp -t tutorial -c pipeline.yml -p hello-world`
