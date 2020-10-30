@@ -10,6 +10,8 @@
     - If getting an error when trying to open fly run: `xattr -d com.apple.quarantine /usr/local/bin/fly`
 - `cd tutorials/basic/task-hello-world/`
 - `fly -t tutorial execute -c task_hello_world.yml`
+    - `-t`: target
+    - `-c`: config
 
 ## 2. Running Tasks
 - Can run from command line
@@ -36,9 +38,10 @@
 - `fly -t tutorial e -c task_show_uname.yml`
 - `task-scripts/task_show_uname.sh` is made available through the `inputs`
 
-## 5. Basic pipeline
+## 5. Basic Pipeline
 - `cd basic/basic-pipeline`
 - `fly -t tutorial set-pipeline -c pipeline.yml -p hello-world`
+    - `-p`: alias for `--pipeline`
 - To unpause: `fly -t tutorial unpause-pipeline -p hello-world`
 - To trigger: click on `job-hello-world` & then the `+`
 
@@ -63,7 +66,7 @@
 
 - To see all builds: `fly -t tutorial builds`
 
-## 8. Triggering jobs
+## 8. Triggering Jobs
 - Clicking `+` in the web UI
 - Input resource triggering a job
 - `fly trigger-job -j pipeline/jobname` command
@@ -74,3 +77,11 @@ Test:
 - To see logs in terminal: `fly -t tutorial watch -j hello-world/job-hello-world`
 - Or trigger & watch in one command:
     - `fly -t tutorial trigger-job -j hello-world/job-hello-world -w`
+    
+## 9. Triggering Jobs with Resources
+- When resource changes, cause a job trigger
+    - `trigger: true`
+- `cd tutorials/basic/triggers/`
+- `fly sp -t tutorial -c pipeline.yml -p hello-world`
+- `fly up -t tutorial -p hello-world`
+- Solid line: trigger resource
