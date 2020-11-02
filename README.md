@@ -101,3 +101,14 @@ Test:
     - `fly -t tutorial up -p simple-app`
     - Navigate to: http://127.0.0.1:8080/teams/main/pipelines/simple-app
  
+ ## 12. Passing Task Outputs to Task Inputs
+- Task `outputs`: some name
+- Task `inputs` can consume by same name as `outputs` name
+- Output creates a directory with sane name
+
+-Ex:
+   - `cd ../task-outputs-to-inputs`
+   - `fly -t tutorial sp -p pass-files -c pipeline.yml`
+   - `fly -t tutorial up -p pass-files`
+   - `fly -t tutorial trigger-job -j pass-files/job-pass-files -w`
+ 
