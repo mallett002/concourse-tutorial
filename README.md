@@ -85,3 +85,19 @@ Test:
 - `fly sp -t tutorial -c pipeline.yml -p hello-world`
 - `fly up -t tutorial -p hello-world`
 - Solid line: trigger resource
+
+## 10. Destroying Pipelines
+`fly -t tutorial destroy-pipeline -p hello-world`
+
+## 11. Resource Inputs in Job Tasks
+- To run tests for a simple app:
+    - task `image` with dependencies
+    - input `resource` with task script for running test
+    - input `resource` containing app source code
+    
+- Ex:
+    - `cd ../job-inputs`
+    - `fly -t tutorial sp -p simple-app -c pipeline.yml`
+    - `fly -t tutorial up -p simple-app`
+    - Navigate to: http://127.0.0.1:8080/teams/main/pipelines/simple-app
+ 
