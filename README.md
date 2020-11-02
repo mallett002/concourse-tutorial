@@ -102,9 +102,9 @@ Test:
     - Navigate to: http://127.0.0.1:8080/teams/main/pipelines/simple-app
  
  ## 12. Passing Task Outputs to Task Inputs
-- Task `outputs`: some name
-- Task `inputs` can consume by same name as `outputs` name
-- Output creates a directory with sane name
+- Task `outputs`
+- Task `inputs` can consume by same name as previous task `outputs` name
+- Output creates a directory with same name
 
 -Ex:
    - `cd ../task-outputs-to-inputs`
