@@ -1,0 +1,46 @@
+---
+resources:
+  - name: resource-tutorial
+    type: git
+    source:
+      uri: https://github.com/starkandwayne/concourse-tutorial.git
+      branch: develop
+
+jobs:
+  - name: job-pass-files
+    public: true
+    plan:
+      - get: resource-tutorial
+      - task: create-some-files
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: {repository: busybox}
+
+          inputs:
+            - name: resource-tutorial
+          outputs:
+            - name: some-files
+
+          # run command is responsible or putting files in the "some-files" directory so other tasks can use it
+          # Accessible under the some-files/ directory
+          run:
+            path: resource-tutorial/tutorials/basic/task-outputs-to-inputs/create_some_files.sh
+
+      - task: show-some-files
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: {repository: busybox}
+
+          inputs:
+            - name: resource-tutorial
+
+            # Access the output of the create-some-files task
+            - name: some-files
+
+          run:
+            path: resource-tutorial/tutorials/basic/task-outputs-to-inputs/show_files.sh
+
