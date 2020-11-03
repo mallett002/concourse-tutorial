@@ -1,0 +1,41 @@
+---
+resources:
+  - name: resource-tutorial
+    type: git
+    source:
+      uri: https://github.com/mallett002/concourse-tutorial.git
+      branch: master
+
+  - name: resource-gist
+    type: git
+    source:
+      uri: git@gist.github.com:ff05df0e99ea7369a5e29b1199d01601.git
+      branch: master
+      private_key: |
+        Paste your private key in here. Make sure to indent :)
+
+jobs:
+  - name: job-bump-date
+    serial: true
+    plan:
+      - get: resource-tutorial
+      - get: resource-gist
+      - task: bump-timestamp-file
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source: {repository: starkandwayne/concourse}
+
+          inputs:
+            - name: resource-tutorial
+            - name: resource-gist
+          outputs:
+            - name: updated-gist
+          run:
+            path: resource-tutorial/tutorials/basic/publishing-outputs/bump-timestamp-file.sh
+
+      # put pushes to the given resource
+      - put: resource-gist
+        params:
+          repository: updated-gist

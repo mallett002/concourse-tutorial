@@ -112,3 +112,13 @@ Test:
    - `fly -t tutorial up -p pass-files`
    - `fly -t tutorial trigger-job -j pass-files/job-pass-files -w`
  
+## 13. Publishing Outputs
+- Push modified git repo to a remote endpoint
+- Gist: https://gist.github.com/mallett002/ff05df0e99ea7369a5e29b1199d01601
+- private key: `~/.ssh/id_rsa_concourse`
+    - copy and past into `tutorials/basic/publishing-outputs/pipeline.yml`
+    - `cd ../publishing-outputs`
+    - `fly -t tutorial sp -p publishing-outputs -c pipeline.yml`
+    - `fly -t tutorial up -p publishing-outputs`
+    
+- Output from the `task: bump-timestamp-file` is input for `resource-gist`
