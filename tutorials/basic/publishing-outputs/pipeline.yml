@@ -3,8 +3,8 @@ resources:
   - name: resource-tutorial
     type: git
     source:
-      uri: https://github.com/mallett002/concourse-tutorial.git
-      branch: master
+      uri: https://github.com/starkandwayne/concourse-tutorial.git
+      branch: develop
 
   - name: resource-gist
     type: git
@@ -26,6 +26,7 @@ jobs:
           image_resource:
             type: docker-image
             source: {repository: starkandwayne/concourse}
+            # image contains the git cli
 
           inputs:
             - name: resource-tutorial
