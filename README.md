@@ -122,3 +122,16 @@ Test:
     - `fly -t tutorial up -p publishing-outputs`
     
 - Output from the `task: bump-timestamp-file` is input for `resource-gist`
+
+## 14. Parameters
+- ((parameter))
+- Test:
+    - `cd ../parameters`
+    - `fly -t tutorial sp -p parameters -c pipeline.yml`
+    - `fly -t tutorial up -p parameters`
+    - Will fail: `fly -t tutorial trigger-job -j parameters/show-animal-names -w` (no vars set)
+    - Will pass using `-v` to set variables: `fly -t tutorial sp -p parameters -c pipeline.yml -v cat-name=garfield -v dog-name=odie`
+    
+- Storing parameters in local file
+    - `--load-vars-from` flag (aliased `-l`)
+    - ex: `fly -t tutorial sp -p parameters -c pipeline.yml -l credentials.yml`
