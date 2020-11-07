@@ -135,3 +135,9 @@ Test:
 - Storing parameters in local file
     - `--load-vars-from` flag (aliased `-l`)
     - ex: `fly -t tutorial sp -p parameters -c pipeline.yml -l credentials.yml`
+
+- Updating `publishing-outputs` pipeline:
+    - `cd ../publishing-outputs`
+    - `fly -t tutorial sp -p publishing-outputs -c pipeline-parameters.yml -l credentials.yml`
+    - `fly -t tutorial up -p publishing-outputs`
+    - `fly -t tutorial trigger-job -j publishing-outputs/job-bump-date`
