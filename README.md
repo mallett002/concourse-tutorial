@@ -135,3 +135,16 @@ Test:
 - Storing parameters in local file
     - `--load-vars-from` flag (aliased `-l`)
     - ex: `fly -t tutorial sp -p parameters -c pipeline.yml -l credentials.yml`
+
+- Updating `publishing-outputs` pipeline:
+    - `cd ../publishing-outputs`
+    - `fly -t tutorial sp -p publishing-outputs -c pipeline-parameters.yml -l credentials.yml`
+    - `fly -t tutorial up -p publishing-outputs`
+    - `fly -t tutorial trigger-job -j publishing-outputs/job-bump-date`
+
+## 15. Passing Resources Between Jobs
+- `passed`: Only trigger and fetch resources that succeed through given list
+- ex:
+    - `cd ../pipeline-jobs`
+    - `fly -t tutorial sp -p publishing-outputs -c pipeline.yml -l ../publishing-outputs/credentials.yml`
+    - `fly -t tutorial trigger-job -w -j publishing-outputs/job-bump-date`
