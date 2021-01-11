@@ -5,10 +5,10 @@ image_resource:
     type: docker-image
     source: {repository: busybox}
 
-# Get access to dir inside the container (for the .sh file)
+# Get access to current dir inside the container (for the .sh file)
 inputs:
     - name: task-scripts
 
 # Run the .sh
 run:
-    path: ./task-scripts/task_show_uname.sh
+    path: task-scripts/task_show_uname.sh

@@ -42,7 +42,7 @@
     - scripts to be executed
 - `cd ../task-scripts`
 - `fly -t tutorial e -c task_show_uname.yml`
-- `task-scripts/task_show_uname.sh` is made available through the `inputs`
+- `task-scripts/task_show_uname.sh` is made available through the `inputs` from current dir
 
 ## 5. Basic Pipeline
 - `cd basic/basic-pipeline`
