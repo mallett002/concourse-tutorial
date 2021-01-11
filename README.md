@@ -49,7 +49,9 @@
 - `fly -t tutorial set-pipeline -c pipeline.yml -p hello-world`
     - `-p`: alias for `--pipeline`
 - To unpause: `fly -t tutorial unpause-pipeline -p hello-world`
-- To trigger: click on `job-hello-world` & then the `+`
+- To trigger:
+  - In web ui, click on `job-hello-world` & then the `+`
+  - or trigger from command line: `fly -t tutorial trigger-job --job hello-world/job-hello-world`
 
 ## 6. Pipeline Resources
 - All inputs that are stored externally from concourse

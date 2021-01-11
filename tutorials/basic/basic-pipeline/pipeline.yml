@@ -1,8 +1,6 @@
 ---
 jobs:
   - name: job-hello-world
-# public: build log of job viewable by unauthenticated viewers
-    public: true
     plan:
       - task: hello-world
         config:
