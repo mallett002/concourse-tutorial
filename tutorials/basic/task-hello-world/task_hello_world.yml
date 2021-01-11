@@ -1,10 +1,10 @@
 ---
-platform: linux
+platform: linux # Platform task should run on: linux | darwin | windows
 
-image_resource:
+image_resource: # image to run with. Checks latest version before using.
     type: docker-image
     source: {repository: busybox}
 
-run:
+run: # command to execute within image_resource
     path: echo
     args: [hello world]

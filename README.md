@@ -15,23 +15,26 @@
     - Or run `fly targets` to see a list of them
 
 ## 2. Running Tasks
-- Can run from command line
-    - ex: 
-        - `cd concourse-tutorial/tutorials/basic/task-hello-world`
-        - `fly -t tutorial execute -c task_hello_world.yml`
-            - `-t`: target
-            - `-c`: config
-- Or in a pipeline job as defined in a `pipeline.yml`
+- Can run from command line or within a pipeline job
+- Command line:
+    - `cd tutorials/basic/task-hello-world`
+    - `fly -t tutorial execute -c task_hello_world.yml`
+        - `-t`: target
+        - `-c`: config
+- In a pipeline job as defined in a `pipeline.yml`
 - Every task runs in a container
     - `image_resource`: Pre-baked dependencies for the task
+        - ex: `dcind` for docker-compose
 
 ## 3. Task Inputs
 - Supports image inputs (`image_resource`) & `inputs` for files/folders
-- files/folder inputs:
+- `cd tutorials/basic/task-inputs`
+- Try `fly -t tutorial e -c inputs_required.yml` (e: `execute`)
+- Try `fly -t tutorial e -c inputs_required.yml -i some-important-input=.`
+    - `-i` (input) sets variable to current dir
     - `-i name=value`
-        - ex: `fly -t tutorial e -c inputs_required.yml -i some-important-input=.`
-    - If `inputs` value is same as current dir name, don't need `-i`
-        - ex: `tutorials/basic/task-inputs/input_parent_dir.yml`
+- If `inputs` value is same as current dir name, don't need `-i`
+    - ex: `fly -t tutorial e -c input_parent_dir.yml`
 
 ## 4. Task Scripts
 - `inputs` supports 2 types:
