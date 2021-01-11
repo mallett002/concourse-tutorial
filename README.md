@@ -8,16 +8,19 @@
     - `sudo mv ~/Downloads/fly /usr/local/bin`
     - `sudo chmod 0755 /usr/local/bin/fly`
     - If getting an error when trying to open fly run: `xattr -d com.apple.quarantine /usr/local/bin/fly`
-- `cd tutorials/basic/task-hello-world/`
-- `fly -t tutorial execute -c task_hello_world.yml`
-    - `-t`: target
-    - `-c`: config
+- Set a target to make auth requests via fly:
+    - `fly —target my-target login —concourse-url http://127.0.0.1:8080 -u admin -p admin`
+    - `fly --target tutorial sync` to match the version of fly
+    - can see target saved: `cat ~/.flyrc`
+    - Or run `fly targets` to see a list of them
 
 ## 2. Running Tasks
 - Can run from command line
     - ex: 
         - `cd concourse-tutorial/tutorials/basic/task-hello-world`
         - `fly -t tutorial execute -c task_hello_world.yml`
+            - `-t`: target
+            - `-c`: config
 - Or in a pipeline job as defined in a `pipeline.yml`
 - Every task runs in a container
     - `image_resource`: Pre-baked dependencies for the task
