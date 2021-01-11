@@ -69,11 +69,13 @@
 
 ## 7. Job Outputs in Terminal
 - Can view output of a job with `watch --job` (or just `-j`)
-- ex: `fly -t tutorial watch --job hello-world/job-hello-world`
+- ex: 
+    - trigger: `fly -t tutorial trigger-job --job hello-world/job-hello-world`
+    - watch: `fly -t tutorial watch --job hello-world/job-hello-world`
+    - To see all builds: `fly -t tutorial builds`
     - Can add `--build NUM` for specific build
+        - ex: `fly -t tutorial watch --build 1` to see build #1
     - leave off `--job` to see one-offs
-
-- To see all builds: `fly -t tutorial builds`
 
 ## 8. Triggering Jobs
 - Clicking `+` in the web UI
