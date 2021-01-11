@@ -8,8 +8,8 @@ resources:
 
 jobs:
   - name: job-hello-world
-    public: true
     plan:
-      - get: resource-tutorial
+      - get: resource-tutorial # gets the resource
       - task: hello-world
+        # uses the resource to run the task:
         file: resource-tutorial/tutorials/basic/task-hello-world/task_hello_world.yml

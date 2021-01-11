@@ -55,13 +55,14 @@
 
 ## 6. Pipeline Resources
 - All inputs that are stored externally from concourse
-- Pre-defined types: https://resource-types.concourse-ci.org/
+- Pre-defined resource types: https://resource-types.concourse-ci.org/
     - ex: `git`, `docker-image`, `slack-notifier`
 
 - To run:
     - `cd ../pipeline-resources`
     - Set pipeline: `fly -t tutorial sp -c pipeline.yml -p hello-world`
     - To unpause: `fly -t tutorial up -p hello-world`
+    - Trigger: `fly -t tutorial trigger-job --job hello-world/job-hello-world`
 
 - The `hello-world` Task has access to the `resource-tutorial` git Resource
     - Under the `resource-tutorial/` path
