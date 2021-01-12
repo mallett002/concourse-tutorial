@@ -3,8 +3,8 @@ resources:
   - name: resource-tutorial
     type: git
     source:
-      uri: https://github.com/starkandwayne/concourse-tutorial.git
-      branch: develop
+      uri: https://github.com/mallett002/concourse-tutorial.git
+      branch: master
 
 jobs:
   - name: job-hello-world
