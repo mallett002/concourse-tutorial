@@ -80,8 +80,11 @@
     - leave off `--job` to see one-offs
     
 ## 8. Triggering Jobs with Resources
-- When resource changes, cause a job to trigger
-    - `trigger: true`
+- When resource changes, cause a job to trigger: `trigger: true`
+    - ex:
+        - A git repo has a new commit
+        - A GitHub project cuts a new release
+        - Time resource reports new version
 - `cd tutorials/basic/triggers/`
 - `fly sp -t tutorial -c pipeline.yml -p hello-world`
 - `fly up -t tutorial -p hello-world`

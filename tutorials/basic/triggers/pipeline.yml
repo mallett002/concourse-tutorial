@@ -9,16 +9,14 @@ resources:
   - name: my-timer
     type: time
     source:
-      interval: 2m
+      interval: 1m
 
 jobs:
   - name: job-hello-world
-    public: true
-# serial: Builds execute one by one rather than in parallel (default false)
-    serial: true
+    serial: true # Builds execute one by one rather than in parallel (default)
     plan:
       - get: resource-tutorial
       - get: my-timer
-        trigger: true
+        trigger: true # trigger the job when my-timer reports new version (every 1m)
       - task: hello-world
         file: resource-tutorial/tutorials/basic/task-hello-world/task_hello_world.yml
