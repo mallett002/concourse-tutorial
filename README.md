@@ -78,7 +78,7 @@
     - Can add `--build NUM` for specific build
         - ex: `fly -t tutorial watch --build 1` to see build #1
     - leave off `--job` to see one-offs
-    
+
 ## 8. Triggering Jobs with Resources
 - When resource changes, cause a job to trigger: `trigger: true`
     - ex:
@@ -94,11 +94,11 @@
 `fly -t tutorial destroy-pipeline -p hello-world`
 
 ## 10. Resource Inputs in Job Tasks
-- To run tests for a simple app:
-    - task `image` with dependencies
+- Resources needed to run tests for a simple app:
+    - task `image` with dependencies (Go programming language)
     - input `resource` with task script for running test
     - input `resource` containing app source code
-    
+
 - Ex:
     - `cd ../job-inputs`
     - `fly -t tutorial sp -p simple-app -c pipeline.yml`

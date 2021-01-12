@@ -7,12 +7,11 @@ image_resource:
   source: {repository: golang, tag: 1.9-alpine}
 
 inputs:
-  # script for running tests
-  - name: resource-tutorial
+  - name: resource-tutorial # script for running tests
+  - name: resource-app # source code
 
-  # source code
-  - name: resource-app
-    # Specific to GO language: Access through gopath/
+    # Specific to GO language: Create an alternate path to access app source code through gopath/
+    # defaults to name of resource
     path: gopath/src/github.com/cloudfoundry-community/simple-go-web-app
 
 run:
