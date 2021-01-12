@@ -20,4 +20,5 @@ jobs:
       - get: jwt-auth-server
         trigger: true # when gets a new commit, trigger job
       - task: web-app-tests
+        privileged: true
         file: resource-tutorial/tutorials/basic/node-app-verify/task_run_tests.yml
