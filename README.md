@@ -95,15 +95,16 @@
 
 ## 10. Resource Inputs in Job Tasks
 - Resources needed to run tests for a simple app:
-    - task `image` with dependencies (Go programming language)
+    - task `image` with dependencies (node)
     - input `resource` with task script for running test
     - input `resource` containing app source code
+    - simple node server: https://github.com/mallett002/jwt-auth-server
 
 - Ex:
-    - `cd ../job-inputs`
-    - `fly -t tutorial sp -p simple-app -c pipeline.yml`
-    - `fly -t tutorial up -p simple-app`
-    - Navigate to: http://127.0.0.1:8080/teams/main/pipelines/simple-app
+    - `cd ../node-app-verify`
+    - `fly -t tutorial sp -c pipeline.yml -p jwt-auth-server`
+    - `fly -t tutorial up -p jwt-auth-server`
+    - Navigate to: http://127.0.0.1:8080/teams/main/pipelines/jwt-auth-server
  
  ## 11. Passing Task Outputs to Task Inputs
 - A task's inputs can also come from the outputs of previous tasks
