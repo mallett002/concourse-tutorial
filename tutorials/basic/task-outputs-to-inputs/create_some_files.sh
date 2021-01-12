@@ -1,7 +1,6 @@
 #!/bin/sh
 
-mkdir some-files
-# will error bc output directory "some-files" is pre-created
+mkdir some-files # will error bc output directory "some-files" is pre-created
 
 echo "file1" > some-files/file1
 echo "file2" > some-files/file2

@@ -106,8 +106,9 @@
     - Navigate to: http://127.0.0.1:8080/teams/main/pipelines/simple-app
  
  ## 11. Passing Task Outputs to Task Inputs
+- A task's inputs can also come from the outputs of previous tasks
 - Task `outputs`
-- Task `inputs` can consume by same name as previous task `outputs` name
+- Input from same name as output
 - Output creates a directory with same name
 
 -Ex:

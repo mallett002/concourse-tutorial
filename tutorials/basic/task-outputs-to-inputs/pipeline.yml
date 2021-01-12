@@ -8,7 +8,6 @@ resources:
 
 jobs:
   - name: job-pass-files
-    public: true
     plan:
       - get: resource-tutorial
       - task: create-some-files
@@ -17,10 +16,9 @@ jobs:
           image_resource:
             type: docker-image
             source: {repository: busybox}
-
-          inputs:
+          inputs: # takes in the resource-tutorial
             - name: resource-tutorial
-          outputs:
+          outputs: # outputs content under "some-files"
             - name: some-files
 
           # run command is responsible or putting files in the "some-files" directory so other tasks can use it
@@ -34,13 +32,9 @@ jobs:
           image_resource:
             type: docker-image
             source: {repository: busybox}
-
           inputs:
             - name: resource-tutorial
-
-            # Access the output of the create-some-files task
-            - name: some-files
-
+            - name: some-files # Access the output of the create-some-files task
           run:
             path: resource-tutorial/tutorials/basic/task-outputs-to-inputs/show_files.sh
 
