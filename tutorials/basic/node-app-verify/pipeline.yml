@@ -1,0 +1,23 @@
+---
+resources:
+  # Resource for running task
+  - name: resource-tutorial
+    type: git
+    source:
+      uri: https://github.com/mallett002/concourse-tutorial.git
+      branch: master
+
+  # Resource for app source code
+  - name: jwt-auth-server
+    type: git
+    source:
+      uri: https://github.com/mallett002/jwt-auth-server.git
+
+jobs:
+  - name: unit-tests
+    plan:
+      - get: resource-tutorial
+      - get: jwt-auth-server
+        trigger: true # when gets a new commit, trigger job
+      - task: web-app-tests
+        file: resource-tutorial/tutorials/basic/node-app-verify/task_run_tests.yml
