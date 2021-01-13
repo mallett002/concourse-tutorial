@@ -10,7 +10,7 @@ git clone resource-gist updated-gist
 cd updated-gist
 date > bumpme
 
-# set git user
+# set git user to concourse
 git config --global user.email "nobody@concourse-ci.org"
 git config --global user.name "Concourse"
 

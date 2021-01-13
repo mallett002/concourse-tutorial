@@ -26,9 +26,7 @@ jobs:
           platform: linux
           image_resource:
             type: docker-image
-            source: {repository: starkandwayne/concourse}
-            # image contains the git cli
-
+            source: {repository: alpine/git} # image contains the git cli
           inputs:
             - name: resource-tutorial
             - name: resource-gist
