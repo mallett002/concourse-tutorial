@@ -3,14 +3,15 @@ resources:
   - name: resource-tutorial
     type: git
     source:
-      uri: https://github.com/starkandwayne/concourse-tutorial.git
-      branch: develop
+      uri: https://github.com/mallett002/concourse-tutorial.git
+      branch: master
 
   - name: resource-gist
     type: git
     source:
-      uri: git@gist.github.com:ff05df0e99ea7369a5e29b1199d01601.git
+      uri: git@gist.github.com:ff05df0e99ea7369a5e29b1199d01601.git # gist ssh uri
       branch: master
+      # for write access to gist:
       private_key: |
         Paste your private key in here. Make sure to indent :)
 
