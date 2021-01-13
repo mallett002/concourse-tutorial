@@ -126,7 +126,7 @@
     - `cd ../publishing-outputs`
     - `fly -t tutorial sp -p publishing-outputs -c pipeline.yml`
     - `fly -t tutorial up -p publishing-outputs`
-    
+
 - Output from the `task: bump-timestamp-file` is input for `resource-gist`
 
 ## 13. Parameters
