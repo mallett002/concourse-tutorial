@@ -130,23 +130,21 @@
 - Output from the `task: bump-timestamp-file` is input for `resource-gist`
 
 ## 13. Parameters
-- ((parameter))
+- Setting variables with ((parameter))
 - Test:
     - `cd ../parameters`
     - `fly -t tutorial sp -p parameters -c pipeline.yml`
     - `fly -t tutorial up -p parameters`
     - Will fail: `fly -t tutorial trigger-job -j parameters/show-animal-names -w` (no vars set)
     - Will pass using `-v` to set variables: `fly -t tutorial sp -p parameters -c pipeline.yml -v cat-name=garfield -v dog-name=odie`
-    
 - Storing parameters in local file
     - `--load-vars-from` flag (aliased `-l`)
     - ex: `fly -t tutorial sp -p parameters -c pipeline.yml -l credentials.yml`
-
-- Updating `publishing-outputs` pipeline:
+<!-- Updating `publishing-outputs` pipeline:
     - `cd ../publishing-outputs`
     - `fly -t tutorial sp -p publishing-outputs -c pipeline-parameters.yml -l credentials.yml`
     - `fly -t tutorial up -p publishing-outputs`
-    - `fly -t tutorial trigger-job -j publishing-outputs/job-bump-date`
+    - `fly -t tutorial trigger-job -j publishing-outputs/job-bump-date` -->
 
 ## 14. Passing Resources Between Jobs
 - `passed`: Only trigger and fetch resources that succeed through given list
