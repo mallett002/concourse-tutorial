@@ -150,5 +150,8 @@
 - `passed`: Only trigger and fetch resources that succeed through given list
 - ex:
     - `cd ../pipeline-jobs`
-    - `fly -t tutorial sp -p publishing-outputs -c pipeline.yml -l ../publishing-outputs/credentials.yml`
-    - `fly -t tutorial trigger-job -w -j publishing-outputs/job-bump-date`
+    - to test:
+        - `cat ~/.ssh/id_rsa_concourse`. Copy and paste into `credentials.yml`
+        - `fly -t tutorial sp -p bump-and-show-date -c pipeline.yml -l credentials.yml`
+        - `fly -t tutorial up -p bump-and-show-date`
+        - `fly -t tutorial trigger-job -w -j bump-and-show-date/job-bump-date`
