@@ -24,7 +24,6 @@
 - In a pipeline job as defined in a `pipeline.yml`
 - Every task runs in a container
     - `image_resource`: Pre-baked dependencies for the task
-        - ex: `dcind` for docker-compose
 
 ## 3. Task Inputs
 - Supports image inputs (`image_resource`) & `inputs` for files/folders
