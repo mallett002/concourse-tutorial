@@ -16,12 +16,12 @@
 
 ## 2. Running Tasks
 - Can run from command line or within a pipeline job
+- In a pipeline job as defined in a `pipeline.yml`
 - Command line:
     - `cd tutorials/basic/task-hello-world`
     - `fly -t tutorial execute -c task_hello_world.yml`
         - `-t`: target
         - `-c`: config
-- In a pipeline job as defined in a `pipeline.yml`
 - Every task runs in a container
     - `image_resource`: Pre-baked dependencies for the task
 
