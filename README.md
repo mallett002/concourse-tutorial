@@ -26,22 +26,21 @@
     - `image_resource`: Pre-baked dependencies for the task
 
 ## 3. Task Inputs
+- Tasks can take inputs
 - Supports image inputs (`image_resource`) & `inputs` for files/folders
 - `cd tutorials/basic/task-inputs`
 - Try `fly -t tutorial e -c inputs_required.yml` (e: `execute`)
 - Try `fly -t tutorial e -c inputs_required.yml -i some-important-input=.`
-    - `-i` (input) sets variable to current dir
+    - `-i` (input)
     - `-i name=value`
 - If `inputs` value is same as current dir name, don't need `-i`
     - ex: `fly -t tutorial e -c input_parent_dir.yml`
 
 ## 4. Task Scripts
-- `inputs` supports 2 types:
-    - requirements/dependencies (Like #3)
-    - scripts to be executed
-- `cd ../task-scripts`
-- `fly -t tutorial e -c task_show_uname.yml`
-- `task-scripts/task_show_uname.sh` is made available through the `inputs` from current dir
+- Using `inputs` to run scripts:
+    - `cd ../task-scripts`
+    - `fly -t tutorial e -c task_show_uname.yml`
+    - `task-scripts/task_show_uname.sh` is made available through the `inputs` from current dir
 
 ## 5. Basic Pipeline
 - `cd basic/basic-pipeline`
