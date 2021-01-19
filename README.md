@@ -52,30 +52,26 @@
   - or trigger from command line: `fly -t tutorial trigger-job --job hello-world/job-hello-world`
 
 ## 6. Pipeline Resources
-- All inputs that are stored externally from concourse
+- Resources: inputs that are stored externally from concourse
 - Pre-defined resource types: https://resource-types.concourse-ci.org/
     - ex: `git`, `docker-image`, `slack-notifier`
-
 - To run:
     - `cd ../pipeline-resources`
     - Set pipeline: `fly -t tutorial sp -c pipeline.yml -p hello-world`
     - To unpause: `fly -t tutorial up -p hello-world`
     - Trigger: `fly -t tutorial trigger-job --job hello-world/job-hello-world`
-
 - The `hello-world` Task has access to the `resource-tutorial` git Resource
     - Under the `resource-tutorial/` path
 
-## 7. Job Outputs in Terminal
-- Can view output of a job with `watch --job` (or just `-j`)
+## 7. Watching Job outputs
+- Can view output of a job with `watch (-w) --job (-j)`
 - ex: 
     - trigger: `fly -t tutorial trigger-job --job hello-world/job-hello-world`
     - watch: `fly -t tutorial watch --job hello-world/job-hello-world`
     - Or trigger & watch in one command:
         - `fly -t tutorial trigger-job -j hello-world/job-hello-world -w`
     - To see all builds: `fly -t tutorial builds`
-    - Can add `--build NUM` for specific build
-        - ex: `fly -t tutorial watch --build 1` to see build #1
-    - leave off `--job` to see one-offs
+    - Can add `--build NUM` for specific build (`fly -t tutorial watch --build 1`)
 
 ## 8. Triggering Jobs with Resources
 - When resource changes, cause a job to trigger: `trigger: true`
