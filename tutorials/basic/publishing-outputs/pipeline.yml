@@ -38,4 +38,4 @@ jobs:
       # put pushes to the given resource
       - put: resource-gist
         params:
-          repository: updated-gist
+          repository: updated-gist # outputted from previous task

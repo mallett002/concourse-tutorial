@@ -114,14 +114,14 @@
    - `fly -t tutorial trigger-job -j pass-files/job-pass-files -w`
  
 ## 12. Publishing Outputs
-- `put`: push to given resource
-- Push modified git repo to a remote endpoint
+- Can push updates to resources with `put` step
 - Gist: https://gist.github.com/mallett002/ff05df0e99ea7369a5e29b1199d01601
 - private key: `~/.ssh/id_rsa_concourse`
     - copy and past into `tutorials/basic/publishing-outputs/pipeline.yml`
     - `cd ../publishing-outputs`
     - `fly -t tutorial sp -p publishing-outputs -c pipeline.yml`
     - `fly -t tutorial up -p publishing-outputs`
+    - `fly -t tutorial trigger-job -j publishing-outputs/job-bump-date`
 - Output from the `task: bump-timestamp-file` is input for `resource-gist`
 
 ## 13. Parameters
@@ -132,6 +132,7 @@
     - `fly -t tutorial up -p parameters`
     - Will fail: `fly -t tutorial trigger-job -j parameters/show-animal-names -w` (no vars set)
     - Will pass using `-v` to set variables: `fly -t tutorial sp -p parameters -c pipeline.yml -v cat-name=garfield -v dog-name=odie`
+        - trigger job: `fly -t tutorial trigger-job -j parameters/show-animal-names -w`
 - Storing parameters in local file
     - `--load-vars-from` flag (aliased `-l`)
     - ex: `fly -t tutorial sp -p parameters -c pipeline.yml -l credentials.yml`

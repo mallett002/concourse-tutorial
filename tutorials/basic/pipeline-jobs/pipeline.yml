@@ -43,7 +43,7 @@ jobs:
     - in_parallel:
       - get: resource-tutorial
       - get: resource-gist
-        # only trigger and fetch when job-bump-date succeeds
+        # only trigger and fetch resource-gist when job-bump-date succeeds
         passed: [job-bump-date]
         trigger: true
     - task: show-date
