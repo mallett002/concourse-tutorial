@@ -29,7 +29,7 @@
 - Tasks can take inputs
 - Supports image inputs (`image_resource`) & `inputs` for files/folders
 - `cd tutorials/basic/task-inputs`
-- Try `fly -t tutorial e -c inputs_required.yml` (e: `execute`)
+- Try `fly -t tutorial e -c inputs_required.yml` (should fail missing inputs)
 - Try `fly -t tutorial e -c inputs_required.yml -i some-important-input=.`
     - `-i` (input)
     - `-i name=value`
