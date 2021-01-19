@@ -13,7 +13,7 @@ resources:
 
 jobs:
   - name: job-hello-world
-    serial: true # Builds execute one by one rather than in parallel (default)
+    serial: true # Jobs are ran one by one rather than in parallel (which is the default)
     plan:
       - get: resource-tutorial
       - get: my-timer

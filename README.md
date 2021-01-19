@@ -82,18 +82,19 @@
 - `cd tutorials/basic/triggers/`
 - `fly sp -t tutorial -c pipeline.yml -p hello-world`
 - `fly up -t tutorial -p hello-world`
+- Should trigger automatically due to trigger being time resource
 - Solid line: trigger resource
 
 ## 9. Destroying Pipelines
 `fly -t tutorial destroy-pipeline -p hello-world`
 
 ## 10. Resource Inputs in Job Tasks
+- Tasks can pull in and use resources via `inputs`
 - Resources needed to run tests for a simple app:
     - task `image` with dependencies (node)
     - input `resource` with task script for running test
     - input `resource` containing app source code
     - simple node server: https://github.com/mallett002/jwt-auth-server
-
 - Ex:
     - `cd ../node-app-verify`
     - `fly -t tutorial sp -c pipeline.yml -p jwt-auth-server`
@@ -103,7 +104,7 @@
  ## 11. Passing Task Outputs to Task Inputs
 - A task's inputs can also come from the outputs of previous tasks
 - Task `outputs`
-- Input from same name as output
+- Access previous output by the same name
 - Output creates a directory with same name
 
 -Ex:
@@ -113,6 +114,7 @@
    - `fly -t tutorial trigger-job -j pass-files/job-pass-files -w`
  
 ## 12. Publishing Outputs
+- `put`: push to given resource
 - Push modified git repo to a remote endpoint
 - Gist: https://gist.github.com/mallett002/ff05df0e99ea7369a5e29b1199d01601
 - private key: `~/.ssh/id_rsa_concourse`
@@ -120,7 +122,6 @@
     - `cd ../publishing-outputs`
     - `fly -t tutorial sp -p publishing-outputs -c pipeline.yml`
     - `fly -t tutorial up -p publishing-outputs`
-
 - Output from the `task: bump-timestamp-file` is input for `resource-gist`
 
 ## 13. Parameters
